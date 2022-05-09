@@ -1,0 +1,65 @@
+<!Doctype html>
+    <head>
+        <title>To Do List App</title>
+        <link rel="stylesheet" href="todolist.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <h3 class="heading">To Do List App</h3>
+        <div id="type_box">
+            <input id="input_value" type="text">
+            <button class="add subBtn" id="submitBtn">Submit</button>
+            <button class="clrBtn" onclick="onClear();">Clear</button>
+        </div> 
+        <div id="">
+            <ol id="content_span" class="vertical_text"></ol> 
+            <s><ol id="content_span_del" class="vertical_text"></ol></s>
+            <button id="doneButton" class="vertical_text" onclick="onDone()">X Done</button>
+        </div> 
+
+        <!-- <button class="add">Add</button> -->
+        <div id="new_chq"></div>
+        <input type="hidden" value="1" id="total_chq">
+
+        <script>
+            function onClear()
+            {
+                document.getElementById("input_value").value = "";
+                console.log("Hello");                
+            }
+
+            $("#doneButton").hide();
+            $("#content_span_del").hide();
+
+           
+            $('.add').on('click', add);
+            function add() {
+            
+
+            var gg = document.getElementById("input_value").value;
+                console.log(gg);
+
+              
+               $('#content_span').append('<li class="content_box">'+gg+' <button class="float-right doneBtn" onclick="onDone()" >X Done</button></li> ');
+               $('#content_span_del').append('<li class="content_box">'+gg+'</li>');
+               $("#content_span_del").hide();
+
+                document.getElementById("submitBtn").addEventListener("click", function() {
+                document.getElementById("content_span").innerHTML += "";
+            });
+
+            }
+
+            function onDone()
+            {
+                ggg = document.getElementById("content_span").innerHTML="";
+                console.log(ggg);
+                $("#doneButton").hide();
+                $("#content_span_del").show();
+                
+            }
+
+            
+        </script>      
+    </body>
+</html>
